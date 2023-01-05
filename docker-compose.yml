@@ -13,10 +13,10 @@ services:
       - db
     environment: &api-environment
       DATABASE_NAME: postgres
-      DATEBASE_USER: postgres
+      DATABASE_USER: postgres
       DATABASE_PASSWORD: postgres
       DATABASE_HOST: db
-      DATABASE_HOST: 5432
+      DATABASE_PORT: 5432
     command: poetry run python manage.py runserver 0.0.0.0:8000
 
   db:
