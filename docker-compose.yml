@@ -4,7 +4,9 @@ services:
   api:
     build: .
     volumes:
+
       - .:/app:cached
+
       - ~/.ssh:/root/.ssh
       - ~/.bash_history:/root/.bash_history
     ports:
@@ -12,12 +14,14 @@ services:
     depends_on:
       - db
     environment: &api-environment
+
       DATABASE_NAME: postgres
       DATABASE_USER: postgres
       DATABASE_PASSWORD: postgres
       DATABASE_HOST: db
       DATABASE_PORT: 5432
     command: poetry run python manage.py runserver 0.0.0.0:8000
+
 
   db:
     image: postgres:11.4
